@@ -1,0 +1,229 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>葡萄藤PPT</title>
+
+    <link rel="stylesheet" href="./css/reveal/reveal.css">
+
+    <!-- PPT主题，可以在/css/reveal/theme/中选择其他主题，目前暂时只能使用该模板 -->
+    <link rel="stylesheet" href="./css/reveal/theme/ptt.css">
+
+    <!-- syntax highlighting 代码高亮主题 -->
+    <link rel="stylesheet" href="./lib/reveal/css/zenburn.css">
+
+    <!-- 打印和PDF输出样式 -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? './css/reveal/print/pdf.css' : './css/reveal/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+</head>
+<body>
+<img src="./img/demo/logo.png" alt="" usemap="#pttmap" class="base-logo">
+<map name="pttmap">
+    <area shape="rect" coords="0,0,276,58" href="http://www.jnshu.com" alt="" target="_blank"/>
+</map>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>任务五深度思考之登录注册</h2>
+                   
+        </section>
+        <section>
+        <p>一.为什么要做登录注册？</p>
+        <p>二.核心要素</p>
+	    <p>三.业务闭环</p>
+	    <p>四.将业务嵌入使用场景</p>
+	    <p>五.用户体验需要打磨</p>
+        <p>六.更多功能</p>
+        <p>七.更多讨论</p>
+        </section>
+        <section>
+            <h3>一.为什么要做登录注册？</h3>
+		<h6 style="text-align:left;font-size:24px">
+            </br>万事第一问：为什么
+        </br>
+            产品经理接到需求的本能反应应该是问一句：为什么要做这个需求？
+            
+        </br>为什么要做登录和注册？
+    </br>
+</br>
+            登录和注册的需求来源部门或许有着五花八门的回答，也许是建立用户体系的需要，也许是收集用户信息的需要，也许是用户运营的需要，很多也许。多不要紧，但至少我们知道了实现“登录和注册”对于业务有着至关重要的作用，且会对很多业务功能产生重大影响，需要产品经理认真、慎重的进行设计。
+            到此为止，即可。</h6>
+		
+        </section>
+	<section>
+	    <h3>二.核心要素</h3>	
+		<h6 style="text-align:left;font-size:24px">
+
+            很明显，登录和注册的主要矛盾就是完成两件事：用户登录和用户注册。
+            
+        </br>登录，就是提供给用户某种user interface，简称UI，即用户接口，让用户填入某些标识信息来与系统中已有数据进行身份验证匹配，并赋予用户某些特殊功能使用权限的过程。
+    </br>        
+    </br>听上去很复杂，实际上登录的主要矛盾就是：
+            
+</br>让用户能够输入某种专有信息，例如独特的字符串、电话、身份证、电子信箱等等，总之能唯一表明这个用户的身份信息即可
+</br>            
+        </br>为了解决这个主要矛盾，我们就设计两个输入接口：
+    </br>        
+    </br>身份标识：暂定用户名、手机、电子邮箱三者选一
+</br>密 码：暂定6位字符
+</br>注册，就是将用户的信息保存在系统中，用以日后的登录匹配信息之用。
+            
+        </br>实际上注册的主要矛盾就是：你到底要保存用户的哪些信息？
+    </br>        
+    </br>为了解决这个主要矛盾，我们就设计采集并保存以下用户信息：
+            
+        </br>身份标识：暂定用户名、手机、电子邮箱三者选一
+    </br>密 码：暂定6位字符
+        </br>没错，和登录一模一样，为什么？注册的目的是满足登录信息匹配之用，最最基础的匹配就必然要求登录和注册的所需字段必须一模一样，就好像两个齿轮一样必须啮合。
+    </br>        
+        </br>到这一步，我们为登录和注册增加了第一批的两个页面：登录页和注册页。</h6>
+	</section>
+	<section>
+	    <h3>三.业务闭环</h3>
+		   	<h6 style="text-align:left;font-size:24px">
+                </br>
+                有了两个最基础页面还不算完，在流程图上还是两个独立的点，因为业务流程没有闭环。这个时候就要问自己几个问题：
+            </br>
+                登录成功去哪里？
+            </br>登录失败又去哪里？
+        </br>注册成功去哪里？
+    </br>注册失败又去哪里？
+</br>
+</br>为了完成这个业务流程的闭环，我们就需要增加几个页面：
+            
+            </br>登录成功页
+        </br>登录失败页
+    </br>注册成功页
+</br>注册失败页
+</br>到这一步，我们完成了登录和注册的业务闭环，登录和注册的业务可以打包为独立的业务模块，至此增加了四个辅助页面：登录成功页、登录失败页、注册成功页和注册失败页，总计六个页面。</h6>
+	
+			
+<h6 style="text-align:left;font-size:24px"></h6>
+	</section>
+		
+        <section>
+            <h3>四.将业务使用嵌入场景</h3>
+				   
+			<h6 style="text-align:left;font-size:24px">
+				登录和注册的业务流程已经闭环，且已被打包为独立的业务模块，接下里就要做有很强代入感和参与感的产品使用场景分析，然后把登录和注册塞进需要的流程中。
+                因为只有融入业务流程的产品设计才能体现出价值，否则，和咸鱼有什么区别。
+
+            </br>那么问题来了，有哪些使用场景呢？
+        </br>
+        </br>1)首页或着陆页
+
+    </br>2)涉及需要用户身份验证的页面
+</br>
+            </br>那么问题又来了，如何将登录和注册嵌入呢？
+
+        </br>对于首页和着陆页，我们在页面上明显位置增加登录和注册按钮或超链接，尽可能的引导用户完成登录和注册。
+
+    </br>对于需要用户身份验证的页面，在需要的按钮或超链接上（例如支付、发布、回复、下载等）判断当前用户身份，非认证用户即转入登录和注册流程。
+
+                到这一步，我们将登录和注册嵌入到了平台的业务流程中。至此，登录和注册的产品功能和业务设计基本上完成了。</h6>
+			
+		</section>
+		
+		
+	<section>
+	    <h3>五.用户体验需要打磨</h3>
+		<h6 style="text-align:left;font-size:24px">且慢，产品功能和业务设计只完成了50%，还有50%就是前端产品经理常常挂在嘴边的用户体验。
+            用户体验这回事比较虚，也比较主观，这里就抛砖引玉几个思考点吧：
+        </br>    
+        </br>如果用户名使用电子信箱，如何让用户能够快速完成电子信箱的录入？
+        </br>如何设计良好的登录页错误提示？
+    </br>是否需要记住密码？还是需要2周内不用登录？
+</br>能否不用鼠标来切换用户名和密码框？
+</br>能否用回车键来替代鼠标完成登录或提交的操作？
+</br>如何让用户快速完成注册页的各种字段录入？
+        </br>如何限定注册页的必填字段？
+    </br>如何设计密码强度的提示？
+</br>如何设计良好的注册页错误提示？
+            如果注册页有用户头像，是否需要锁定头像比例？是否提供在线裁剪？
+        </br>
+    </br>
+            其实还会有很多很多问题，需要我们慢慢打磨、细化。</h6>
+	
+        </section>
+	    
+	<section>
+	    <h3>六.更多功能</h3>
+		<h6 style="text-align:left;font-size:24px">
+            这里抛砖引玉说几个：
+        </br>
+    </br>
+            （1）用户访问热点和行为监控
+        </br>这个绝对是核弹级别的增值功能，虽然对于用户不可见，但是对于产品经理了解无法见面用户的使用行为是一个必不可少的功能。通过采集用户在页面上的各种行为，产品经理可以获取到用户的浏览习惯，作为优化产品的重要数据支撑。
+    </br>
+        </br>（2）第三方登录
+    </br>前文已经提到过，登录和注册是任何平台阻碍用户的一座大山，如何能够降低登录和注册的难度，如何能够减少登录和注册的步骤，如何能够提高登录和注册的效率，值得仔细思考。
+            幸运的是，现在各大流量入口平台逐步开放，纷纷提供了第三方登录的接入，可以帮助用户快速的翻过注册的大山来享用我们提供的服务。
+        </br>
+        </br>（3）重置密码或者找回密码
+    </br>这个功能则是为用户登录时可能存在的遗忘密码提供了一个处理渠道。不要小看这个功能，在严谨的业务流程中留出一个异常处理天窗，不会让用户在使用业务功能时掉入死胡同或者“功能黑洞”。
+            
+            
+            
+             
+            
+            </h6>
+					
+        </section>
+
+		
+        <section>
+            <h3>更多讨论</h3>
+        </section>
+		
+
+		
+        <section>
+            <h4>谢谢观看</h4>
+            <p></p>
+            <p><small>By:李晓斐</small></p>
+        </section>
+    </div>
+</div>
+
+<script src="./lib/reveal/js/head.min.js"></script>
+<script src="./lib/reveal/reveal.js"></script>
+
+<script>
+    // 以下为常见配置属性的默认值
+    // {
+    //  controls: true, // 是否在右下角展示控制条
+    //  progress: true, // 是否显示演示的进度条
+    //  slideNumber: false, // 是否显示当前幻灯片的页数编号，也可以使用代码slideNumber: 'c / t' ，表示当前页/总页数。
+    //  history: false, // 是否将每个幻灯片改变加入到浏览器的历史记录中去
+    //  keyboard: true, // 是否启用键盘快捷键来导航
+    //  overview: true, // 是否启用幻灯片的概览模式，可使用"Esc"或"o"键来切换概览模式
+    //  center: true, // 是否将幻灯片垂直居中
+    //  touch: true, // 是否在触屏设备上启用触摸滑动切换
+    //  loop: false, // 是否循环演示
+    //  rtl: false, // 是否将演示的方向变成RTL，即从右往左
+    //  fragments: true, // 全局开启和关闭碎片。
+    //  autoSlide: 0, // 两个幻灯片之间自动切换的时间间隔（毫秒），当设置成 0 的时候则禁止自动切换，该值可以被幻灯片上的 ` data-autoslide` 属性覆盖
+    //  transition: 'default', // 切换过渡效果，有none/fade/slide/convex/concave/zoom
+    //  transitionSpeed: 'default', // 过渡速度，default/fast/slow
+    //  mouseWheel: true, //是否启用通过鼠标滚轮来切换幻灯片
+    // }
+    // 初始化幻灯片
+    Reveal.initialize({
+        history: true,
+        dependencies: [
+            { src: './plugin/markdown/marked.js' },
+            { src: './plugin/markdown/markdown.js' },
+            { src: './plugin/notes/notes.js', async: true },
+            { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+    });
+</script>
+</body>
+</html> 
