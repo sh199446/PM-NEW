@@ -1,0 +1,190 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>葡萄藤PPT</title>
+
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/reveal.css">
+
+    <!-- PPT主题，可以在/css/reveal/theme/中选择其他主题，目前暂时只能使用该模板 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/theme/ptt.css">
+
+    <!-- syntax highlighting 代码高亮主题 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/lib/reveal/css/zenburn.css">
+
+    <!-- 打印和PDF输出样式 -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'https://ptteng.github.io/PPT/css/reveal/print/pdf.css' : '../css/reveal/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+</head>
+<body>
+<img src="https://ptteng.github.io/PPT/img/demo/logo.png" alt="" usemap="#pttmap" class="base-logo">
+<map name="pttmap">
+    <area shape="rect" coords="0,0,276,58" href="http://www.jnshu.com" alt="" target="_blank"/>
+</map>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2></h2>
+            <h3>什么是敏捷开发？</h3>
+            <p>分享人：汪浩</p>
+        </section>
+        <section>
+            <p>1.敏捷开发是什么？</p>
+            <p>2.敏捷开发的特点</p>
+            <p>3.什么是MVP和精益分析</p>
+            <p>4.敏捷开发不需要写文档吗？</p>
+            <p>5.敏捷思想“勇于接受变化”</p>
+            <p>6.总结</p>
+            <p>7.讨论</p>
+            <p></p>
+        </section>
+        <section>
+            <h3>一、敏捷开发是什么？	</h3>
+        </section>
+        <section>
+            <p></p>
+            <p>
+                敏捷开发就是以用户的需求进化为核心，采用迭代、循序渐进的方法进行软件开发。在敏捷开发中，软件项目在构建初期被切分成多个子项目，各个子项目的成果都经过测试，
+                具备可视、可集成和可运行的特征。换言之，就是把一个大项目分为多个相互联系、而又可以独立运行的小项目，并分别完成，从而实现快速开发的目的。
+            </p>
+        </section>
+        <section>
+                <h3>二、敏捷开发的特点</h3>
+            </section>
+    
+        <section>
+            <p></p>
+            <p></p>
+            <p>1.尽早交付</p>
+            <p>为了让需求方尽早地看到结果，并给予反馈，我们就应该尽早地交付新的版本。对于敏捷来说，可用的软件胜过完备的文档。
+                比如之前传统的瀑布式开发要求的使用产品需求说明书来写详细的需求，这个时候我们采用敏捷开发的方法，或许有时候只画一个原型加点备注来告知需求，
+                又或者直接通过口头沟通来告知需求，这就大大简化了项目交付的时间，从而达到了尽早交付的目的。（而且，交付的时间间隔越短越好，
+                也就是迭代周期通过这种频繁地迭代是为了与用户形成良好的合作关系，及时反馈，不断地完善和提高产品的用户体验，对于不能给用户或者产品带来价值的功能需求，则坚决不做。）</p>
+        </section>
+        <section>
+                <p>2.制定计划，决策变化</p>
+                <p>
+                        在互联网时代，尤其是移动互联网时代，随着时间的变化，市场环境、用户需求、竞争对手等因素都在时时发生着改变，需求方（比如用户、市场、运营、老板或者是产品自己）会不断地赋予产品新的需求来应对这种变化。
+                        敏捷不代表不做项目计划，恰恰相反的是，敏捷更加注重计划的制定。因为敏捷开发就是为了能够及时地响应用户和市场的需求，
+                        所以并不会死守着计划不进行调整，一旦市场发生变化，即使到了开发后期，敏捷也欢迎改变需求，不断地修正自己原先的计划，
+                        利用变化来为产品创造竞争优势。同时，参与敏捷项目的团队成员也不害怕变化，因为这些改变意味着自己更了解了市场需求，让团队本身能够与市场、用户需求同步。
+                        
+                </p>
+            </section>
+            <section>
+                    <p>3.	开发过程中不要加任务</p>
+                    <p>
+                            每个版本都有自己的开始时间和结束时间，也在项目刚开始的时候就配置了相关的资源来实现产品的需求，如果临时突然插入新的需求或是修改需求的话，
+                            多少会对项目的进度产生影响。所以，我们还是尽量在版本开始前就思考地清楚一些，除非碰到特殊情况，尽量做到版本内不加任务。
+                    </p>
+                </section>
+                <section>
+                        <p>4.	团队成员配置</p>
+                        <p>
+                                团队人数控制在二十人以内，这样方便沟通，而且团队安排在一个办公室里也会大大提高效率，在互联网公司里，应该都听说过“站立晨会”这么一说，
+                                这种形式也是要基于敏捷的团队的配置才能更好的完成。想象一下，如果一个场地，站满了几十上百号人，每个人说一下自己的日常工作，
+                                那么基本上一个上午的时间就过去了，这是效率非常低下的一种表现形式，如何谈的上敏捷二字呢？
+                        </p>
+                    </section>
+        
+        <section>
+            <h3>三、MVP和精益分析</h3>
+        </section>
+        <section>
+            <p>
+                什么是MVP？
+            </p>
+            <p>简单说，MVP就是指产品开发团队通过提供最小化可行产品获取用户反馈，并在这个最小化可行产品上持续快速迭代，直到产品到达一个相对稳定的阶段。
+                （在产品的生命周期中，产品处于探索期时，产品价值、市场切入点、用户群、用户体验平衡点、商业目标等都模糊不清，这时候就需要低成本快捷的MVP去探索以上问题，让产品找到更好的发展方向。）</p>
+            <p></p>
+            <p></p>
+        </section>
+        <section>
+            <p>什么是精益分析？</p>
+            <p>所谓的精益分析，首先是你有一个想法或者灵感，然后通过MVP策略让产品快速上线，产品上线后，通过数据来衡量用户的表现，如果好的话就保持、继续优化，不好的就下线反思。（创业团队往往精力有限，
+                要让验证的周期尽可能缩短，而MVP加上精益分析，通过数据表现就可以快速地帮助验证市场对于产品的反馈。如果用户反馈很好，就可以继续加大投入，如果用户反馈有问题，也可以及时调整避免更多的精力浪费。）</p>
+        </section>
+        <section>
+            <h3>四、敏捷开发不需要写文档吗？</h3>
+        </section>
+        <section>
+            <p>敏捷宣言的第二条“可工作的软件胜于详尽的文档”，很多人理解为敏捷开发不重视文档，甚至以此为借口逃避写文档。</p>
+            <p>首先，我们要理解敏捷的背后思想，敏捷4条宣言都是在强调“价值”、“快速交付价值”、“为客户提供价值”的理念。换句话说，研发团队要把精力放在能够为客户带来价值的地方，避免在不产生价值或者投入回报率低的任务上浪费时间。
+                    其次，我们要知道，文档是用来准确传递信息，帮助理解事物的，所以，当我们有比写文档更简便的方式来表达信息时，写文档就会浪费时间，比如在站立晨会时能交流的信息就不需要写文档，反之如果文档更能方便的表达信息，满足需要，就需要写文档。
+            </p>
+        </section>
+         <section>
+            <h3>五、敏捷思想“勇于接受变化”</h3>
+        </section>
+        <section>
+            <p>没有一成不变的需求</p>
+			<p>做产品的就是在时时刻刻的接收市场考验，就像在大海上航行，当风向变化，我们的大船不也得时刻准备掉头，准备调整。变化，本身就是为了适应，没有变化，就等于没有进步。但作为产品经理的我们，
+                能做的应该是利用自己的智慧和敏锐的市场洞察力，尽量的去感知风向，尽量的控制需求，在需求发现初期就做好充足的调研。怕变化，不是办法，在项目初期就要做好灵活可调整的方案，如果需求真的变化了，
+                我们应该怎么办，这才是敏捷的思想，有谁能阻止需求的变化呢？</p>
+			<p></p>
+			<p></p>
+            
+        </section>
+        <section>
+                <h3>六、总结</h3>
+                <p>敏捷开发固然是一种好的开发模式，好在要合理运用，从开发流程到团队，都需要分配调整好，不然再好的开发模式，团队不协调，流程不到位，都无济于事。</p>
+            </section>
+    
+        <section>
+            <h3>七、更多讨论</h3>
+            <p></p>
+        </section>
+        <section>
+            <h4></h4>
+            <p>感谢大家观看</p>
+            <p><small>BY : 汪浩</small></p>
+        </section>
+
+    </div>
+</div>
+
+<script src="https://ptteng.github.io/PPT/lib/reveal/js/head.min.js"></script>
+<script src="https://ptteng.github.io/PPT/lib/reveal/reveal.js"></script>
+
+<script>
+
+    // 以下为常见配置属性的默认值
+    // {
+    // 	controls: true, // 是否在右下角展示控制条
+    // 	progress: true, // 是否显示演示的进度条
+    // 	slideNumber: false, // 是否显示当前幻灯片的页数编号，也可以使用代码slideNumber: 'c / t' ，表示当前页/总页数。
+    // 	history: false, // 是否将每个幻灯片改变加入到浏览器的历史记录中去
+    // 	keyboard: true, // 是否启用键盘快捷键来导航
+    // 	overview: true, // 是否启用幻灯片的概览模式，可使用"Esc"或"o"键来切换概览模式
+    // 	center: true, // 是否将幻灯片垂直居中
+    // 	touch: true, // 是否在触屏设备上启用触摸滑动切换
+    // 	loop: false, // 是否循环演示
+    // 	rtl: false, // 是否将演示的方向变成RTL，即从右往左
+    // 	fragments: true, // 全局开启和关闭碎片。
+    // 	autoSlide: 0, // 两个幻灯片之间自动切换的时间间隔（毫秒），当设置成 0 的时候则禁止自动切换，该值可以被幻灯片上的 ` data-autoslide` 属性覆盖
+    // 	transition: 'default', // 切换过渡效果，有none/fade/slide/convex/concave/zoom
+    // 	transitionSpeed: 'default', // 过渡速度，default/fast/slow
+    // 	mouseWheel: true, //是否启用通过鼠标滚轮来切换幻灯片
+    // }
+
+    // 初始化幻灯片
+    Reveal.initialize({
+        history: true,
+        dependencies: [
+            { src: 'https://ptteng.github.io/PPT/plugin/markdown/marked.js' },
+            { src: 'https://ptteng.github.io/PPT/plugin/markdown/markdown.js' },
+            { src: 'https://ptteng.github.io/PPT/plugin/notes/notes.js', async: true },
+            { src: 'https://ptteng.github.io/PPT/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+    });
+</script>
+</body>
+</html>
