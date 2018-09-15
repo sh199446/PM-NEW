@@ -1,0 +1,152 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>葡萄藤PPT</title>
+
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/reveal.css">
+
+    <!-- PPT主题，可以在/css/reveal/theme/中选择其他主题，目前暂时只能使用该模板 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/theme/ptt.css">
+
+    <!-- syntax highlighting 代码高亮主题 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/lib/reveal/css/zenburn.css">
+
+    <!-- 打印和PDF输出样式 -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'https://ptteng.github.io/PPT/css/reveal/print/pdf.css' : '../css/reveal/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+</head>
+<body>
+<img src="https://ptteng.github.io/PPT/img/demo/logo.png" alt="" usemap="#pttmap" class="base-logo">
+<map name="pttmap">
+    <area shape="rect" coords="0,0,276,58" href="http://www.jnshu.com" alt="" target="_blank"/>
+</map>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>常见用作登录ID的字段分析</h2>
+			<p></p>
+            <h3>PM小课堂</h3>
+            <p>分享人：吕俊儒</p>
+        </section>
+        <section>
+            <p>1.调研方法分享</p>
+            <p>2.常用作登录ID的字段及其优缺点分析</p>
+            <p>3.不同的登录字段，分别适合于哪些场景</p>
+            <p>4.设计时怎样选择合适的方式</p>
+            <p>5.更多讨论</p>
+			<p>6.谢谢观看</p>
+        </section>
+        <section>
+            <h3>1.调研方法分享</h3>
+        </section>
+        <section> 
+            <p>1、调研常见的问题就是没有目的，看似写了一大篇，但是实际上就是流水账，没有意义，最后设计的产品也就是照猫画虎，或者根本就落不了地。
+             </p>
+            <p>2、调研一定要明确目的，比如任务五，我们要去设计金信优客的登录注册找回密码模块，那么我们调研的目的就是要去了解当前市场上的APP都有哪些注册登录找回密码的方式，这些方式都适用于哪种场景，有什么优缺点，最后能够根据自己的情况来分析设计出适合金信优客的登录模块。
+      调研PPT一定要包含两个部分，第一是总结出当前有哪些注册登录找回密码的方式，这些方式的优缺点以及使用场景，第二部分就是根据调研结果来设计出可行性方案。调研过程可以简单的描述一下，不要满篇都是调研过程，我们的重点在于调研结论以及最终分析得出的可行性方案。
+            </p>
+        </section>
+        
+        <section>
+            <h3>2.常用作登录ID的字段</h3>
+        </section>
+        <section>
+                <p>常用作为登录ID的字段有手机号，邮箱，用户名，ID，身份证号，还有一些其他的比如银行卡号，但使用起来不太方便。</p>
+				<p>手机号登录的优点：以手机号登录一般是以短信验证快捷登录，也可以切换成密码登录。手机号登录的优点：登录快捷方便，忘记密码也能快速安全登录。</p>
+				<p>手机号登录的缺点：手机如果有遗失，存在验证码被盗风险。</p>
+				<p>邮箱登录的优点：可以与手机号登录形成互补。</p>
+				<p>邮箱登录的缺点：邮箱号记起来没有手机号方便，大部分用户更习惯于手机号登录。</p>
+                </section>
+
+                <section>
+                <p>用户名登录的优点：用户名登录是很多老旧网站首选的登方式，不支持短信验证等服务，成本低。</p>
+				<p>用户名登录的缺点：相较于邮箱号与手机号，用户名更加容易遗忘。</p>
+				<p>ID登录的优点：ID登录是独立的，不依赖任何第三方。</p>
+				<p>ID登录的缺点：ID一般是网站按一定规则分配的，容易遗忘，如果每个网站都使用ID登录会让用户觉得很混乱。</p>
+				<p>身份证登录的优点：使用身份证登录用户不可能出现忘记账号的情况。</p>
+				<p>身份证登录的缺点：建立账户体系时门槛很高，登录时输入身份证比较麻烦，出于隐私考虑，用户会出现抵触情绪。</p>
+              
+            </section>
+                
+            
+           
+         <section>
+            <h3>3.不同的登录字段，分别适合于哪些场景</h3>
+        </section>
+           
+        <section>
+            <p>登录字段往往与注册方式是相对应的，比如使用手机号来注册的那么就适用于手机号来登录</p>
+			<p>一个网站或者APP一般来说都提供了几种登录方式供用户选择</p>
+			<p>几种注册方式的使用场景：</p>
+			
+        </section>
+		 <section>
+		 <p>手机号注册适用于需要实名认证，快速建立用户体系的产品，国内大多数APP都支持这种注册方式。比如常见的京东金融、天天基金、爱奇艺等。用户名注册适用于需要注册门槛低的产品，比如在线小游戏平台，如7K7K小游戏，4399小游戏等门槛不高的网站。邮箱注册常用于论坛的账户体系，目前支持邮箱注册的网站比较少了，即使支持也没有作为推荐方式。身份证注册的很少，一般是注册后绑定身份证或银行卡，不会直接要求身份证注册，金融服务类的产品一般采用这种方式。ID是注册时分配的，用户自己不能更改。</p>
+		 </section>
+		<section>
+            <h3>4.设计时怎样选择合适的方式</h3>
+        </section>
+        <section>
+            <p>根据使用场景来选择合适的方式</p>
+            <p>  比如我们设计一个金融类APP，那么用手机号来注册就比较适合我们，对应的登录时就可以选择手机号来登录</p>
+        </section>
+        
+        <section>
+            <h3>5.更多讨论</h3>
+        </section>
+
+        <section>
+            <h4>鸣谢</h4>
+            <p>感谢观看,如有出错,恳请指正</p>
+            <p><small>BY : 吕俊儒</small></p>
+        </section>
+
+    </div>
+</div>
+
+<script src="https://ptteng.github.io/PPT/lib/reveal/js/head.min.js"></script>
+<script src="https://ptteng.github.io/PPT/lib/reveal/reveal.js"></script>
+
+<script>
+
+    // 以下为常见配置属性的默认值
+    // {
+    // 	controls: true, // 是否在右下角展示控制条
+    // 	progress: true, // 是否显示演示的进度条
+    // 	slideNumber: false, // 是否显示当前幻灯片的页数编号，也可以使用代码slideNumber: 'c / t' ，表示当前页/总页数。
+    // 	history: false, // 是否将每个幻灯片改变加入到浏览器的历史记录中去
+    // 	keyboard: true, // 是否启用键盘快捷键来导航
+    // 	overview: true, // 是否启用幻灯片的概览模式，可使用"Esc"或"o"键来切换概览模式
+    // 	center: true, // 是否将幻灯片垂直居中
+    // 	touch: true, // 是否在触屏设备上启用触摸滑动切换
+    // 	loop: false, // 是否循环演示
+    // 	rtl: false, // 是否将演示的方向变成RTL，即从右往左
+    // 	fragments: true, // 全局开启和关闭碎片。
+    // 	autoSlide: 0, // 两个幻灯片之间自动切换的时间间隔（毫秒），当设置成 0 的时候则禁止自动切换，该值可以被幻灯片上的 ` data-autoslide` 属性覆盖
+    // 	transition: 'default', // 切换过渡效果，有none/fade/slide/convex/concave/zoom
+    // 	transitionSpeed: 'default', // 过渡速度，default/fast/slow
+    // 	mouseWheel: true, //是否启用通过鼠标滚轮来切换幻灯片
+    // }
+
+    // 初始化幻灯片
+    Reveal.initialize({
+        history: true,
+        dependencies: [
+            { src: 'https://ptteng.github.io/PPT/plugin/markdown/marked.js' },
+            { src: 'https://ptteng.github.io/PPT/plugin/markdown/markdown.js' },
+            { src: 'https://ptteng.github.io/PPT/plugin/notes/notes.js', async: true },
+            { src: 'https://ptteng.github.io/PPT/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+    });
+</script>
+</body>
+</html>
