@@ -1,0 +1,226 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>葡萄藤PPT</title>
+
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/reveal.css">
+
+    <!-- PPT主题，可以在/css/reveal/theme/中选择其他主题，目前暂时只能使用该模板 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/theme/ptt.css">
+
+    <!-- syntax highlighting 代码高亮主题 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/lib/reveal/css/zenburn.css">
+
+    <!-- 打印和PDF输出样式 -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'https://ptteng.github.io/PPT/css/reveal/print/pdf.css' : '../css/reveal/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+</head>
+<body>
+<img src="https://ptteng.github.io/PPT/img/demo/logo.png" alt="" usemap="#pttmap" class="base-logo">
+<map name="pttmap">
+    <area shape="rect" coords="0,0,276,58" href="http://www.jnshu.com" alt="" target="_blank"/>
+</map>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h3>什么是登录注册修改密码模块</h3>
+			<p></P>
+            <h4>PM小课堂</h4>
+            <p>分享人：韩要贺</p>
+        </section>
+        <section>
+            <p>1.背景介绍</p>
+            <p>2.知识剖析</p>
+            <p>3.常见问题</p>
+            <p>4.解决方案</p>
+            <p>5.编码实战</p>
+            <p>6.扩展思考</p>
+            <p>7.参考文献</p>
+            <p>8.更多讨论</p>
+        </section>
+        <section>
+            <h3>1.背景介绍</h3>
+        </section>
+        <section>
+            <p style="text-align:left">登录注册说白了就是建立账户体系，一般分为两大类</p>
+            <p style="text-align:left">1.自建用户系统：用户名/手机号/邮箱/生物（指纹，虹膜，声控）</p>
+            <p style="text-align:left">2.第三方账号授权用户系统：微信/微博/豆瓣/QQ</p>
+
+        </section>
+
+          <section>
+            <h3>2.知识剖析</h3>
+        </section>
+         <section>
+         	<p style="text-align:left">自建用户系统</p>
+             <p style="text-align:left">用户名</p>
+             <p style="text-align:left">在自建用户系统中，单一用户名 + 密码的这种登陆方式已经很少见了，至多出现在一些内部系统中。对于云端的产品，一旦用户忘记用户名或密码，那么这个账户也就再也无法登陆了，除非找管理员证明身份来人工取回，这在如此大用户量的互联网产品中是不可行的。</p>
+<p style="text-align:left">所以用户名+密码的体系正在被淘汰，还比较常见的方式是用户名密码和邮箱或手机号码等一起使用，例如一些论坛都采用这种体系，注册是同时提供用户名密码和邮箱，在登陆时可以用用户名+密码快速登陆。</p>
+             </section>
+             <section>
+             <p style="text-align:left">手机号注册</p>
+             <p style="text-align:left">手机号注册多见于移动端产品中，注册时使用手机号当做用户名，此时需要手机接收验证码来确认配对，配对可以为了确认注册的手机号是用户本人的，可以防止输入手误或他人恶意注册带来的风险。</p>
+ <p style="text-align:left">手机注册的优势在于：
+
+a.对于移动端产品，验证方便，在注册时可以比较方便地让用户完成验证操作，而且在一个连贯的流程中完成（很多时候阅读验证码不需要打开短息，只是在上弹提示中就可以获取）
+
+b.手机号记忆方便，对用户名的记忆和密码找回都非常方便
+
+c.手机号码是用户最稳定的一个身份id，掌握其手机号码可以展开更多的服务，例如通过访问通讯录构建关系
+
+d.实时的消息推送</p>
+ <p style="text-align:left"></p>
+
+             </section>
+             <section>
+            <p style="text-align:left">手机注册的问题在于：</p>
+             <p style="text-align:left">
+                 a.手机号虽然是全球唯一的，但是是复用的，也就是当你不用一个手机号之后，运营商会把这个号重复利用卖给下一个人
+
+b.手机作为现代人的一大器官，手机号码的泄露会引起非常多的麻烦，比如垃圾短信、骚扰电话之类的，所以用户多会比较谨慎地选择
+             </p>
+             </section>
+             <section>
+             <p style="text-align:left">邮箱注册</p>
+             <p style="text-align:left">邮箱注册作为最常用的注册方式，最早从Web端开始盛行，在移动端也普遍保留。作为一个很通用的注册方式，邮箱注册的讲究其实最多，因为邮箱注册的验证流程需要在外围（产品外）进行，会打断注册的连贯性，但是如果省略验证过程，又会丧失许多安全性，所以在邮箱验证的时机上有许多不同的策略。
+
+邮箱最大的特点就是，邮箱地址是私有的，访问是私密的，但是地址是公开的。这会带来两种风险，1.别人拿到你邮箱的可能性和成本都很低；2.生成邮箱来制造假账户的成本也相对低</p>
+ <p style="text-align:left"></p>
+
+             </section>
+             <section>
+             <p style="text-align:left">邮箱账户的优势在于：</p>
+             <p style="text-align:left">1.唯一id，除手机号外最容易记忆的id</p>
+ <p style="text-align:left">2.富媒体推送，可向用户推送具有丰富内容的邮件，引导用户回到主站</p>
+<p style="text-align:left">3.相对于手机，邮箱的私密性相对低，风险敏感性低</p>
+<p style="text-align:left">邮箱的劣势在于：</p>
+<p style="text-align:left">验证需要跳出，所以邮箱注册会存在体验与安全性的矛盾。</p>
+             </section>
+             <section>
+             <p style="text-align:left">三方账号系统</p>
+             <p style="text-align:left">三方账号注册是用大用户量的社交网络的账户系统来注册自己的系统，像微信、微博、QQ这些产品拥有超大的用户量，一般用户都会有这些产品的账号，利用他们开放出的api来进行注册验证具有如下几个优势：</p>
+ <p style="text-align:left">1.省去了用户管理账户的麻烦</p>
+<p style="text-align:left">2.省去了验证步骤。由于三方账号本身在注册的时候已经进行过相关的验证，所以导入三方账号时省去了验证的麻烦。</p>
+<p style="text-align:left">3.通过三方账户可以导入用户的关系，如微博的好友关系等。</p>
+<p style="text-align:left">4.快捷登录，无需输入用户名密码，只要手机上安装有三方应用或浏览器cookie中有三方登录的信息，就可以快速一键登录。</p>
+             </section>
+
+           <section>
+            <h3>3.常见问题</h3>
+        </section>
+         <section>
+             <p style="text-align:left">1.是否需要有自建系统，采用哪种方式</p>
+            <p style="text-align:left">2.是否需要三方系统，采用哪种三方</p>
+
+
+
+
+
+         </section>
+
+        <section>
+            <h3>4.解决方案</h3>
+        </section>
+        <section>
+            <p style="text-align:left">结合具体案例来分析下淘宝的登录注册系统：
+        </p>
+         <p style="text-align:left">淘宝作为中国最大的电商平台，当然会采用自建系统，并且由于用户和场景的多样，采用了多种自建系统平行登录的方式。手机号+邮箱+用户名（打开网页讲解视频）
+        </p>
+         <p style="text-align:left">
+        </p>
+
+        </section>
+		<section>
+			<p style="text-align:left">三方方面只采用了微博，原因不用多说了。此外还有支付宝账户登录，属于同门的三方账户关联。</p>
+            <p style="text-align:left">在注册方面，淘宝采用手机号、邮箱、用户名同时注册的方式，注册时这三个自建系统的方式都为必填，在注册完成后会有很强的引导绑定微博账号。同时还会强制同步创建支付宝账户。</p>
+            <p style="text-align:left">1.品牌和产品强势，所以一定是自建系统为主导。
+
+2.由于不同的场景需要，所以三种方式平行作为主键：邮箱作为最通用的注册方式必不可少；用户名作为淘宝、旺旺中的显示名称方便记忆；手机号对于移动端的布局起到关键作用。
+
+3.由于安全性的考虑，所以同时绑定手机号和邮箱，方便找回和身份确认。
+
+4.由于战略问题，只采用微博作为三方的入口，且只能注册后绑定，作为登录的补充，在注册时无法从三方作为入口。</p>
+
+         </section>
+
+
+
+        <section>
+            <h3>5.编码实战</h3>
+        </section>
+		 <section>
+            <h3>6.扩展思考</h3>
+        </section>
+        <section>
+            <p style="text-align:left">注册登录成功或者失败跳去哪里？</p>
+        </section>
+       <section>
+            <p style="text-align:left">我们完成登录和注册的业务闭环，登录和注册的业务可以打包为独立的业务模块，至此增加了几个辅助页面：登录成功页、登录失败页、注册成功页和注册失败页</p>
+
+<p style="text-align:left"></p>
+<p style="text-align:left"></p>
+<p style="text-align:left"></p>
+
+
+		 </section>
+
+
+
+        <section>
+            <h3>7.参考文献</h3>
+			<p style="text-align:center">知乎，CSDN</p>
+        </section>
+
+        <section>
+            <h3>8.更多讨论</h3>
+            <p>今天的分享就到这里啦，欢迎大家提问和探讨!</p>
+        </section>
+    </div>
+</div>
+
+<script src="https://ptteng.github.io/PPT/lib/reveal/js/head.min.js"></script>
+<script src="https://ptteng.github.io/PPT/lib/reveal/reveal.js"></script>
+
+<script>
+
+    // 以下为常见配置属性的默认值
+    // {
+    // 	controls: true, // 是否在右下角展示控制条
+    // 	progress: true, // 是否显示演示的进度条
+    // 	slideNumber: false, // 是否显示当前幻灯片的页数编号，也可以使用代码slideNumber: 'c / t' ，表示当前页/总页数。
+    // 	history: false, // 是否将每个幻灯片改变加入到浏览器的历史记录中去
+    // 	keyboard: true, // 是否启用键盘快捷键来导航
+    // 	overview: true, // 是否启用幻灯片的概览模式，可使用"Esc"或"o"键来切换概览模式
+    // 	center: true, // 是否将幻灯片垂直居中
+    // 	touch: true, // 是否在触屏设备上启用触摸滑动切换
+    // 	loop: false, // 是否循环演示
+    // 	rtl: false, // 是否将演示的方向变成RTL，即从右往左
+    // 	fragments: true, // 全局开启和关闭碎片。
+    // 	autoSlide: 0, // 两个幻灯片之间自动切换的时间间隔（毫秒），当设置成 0 的时候则禁止自动切换，该值可以被幻灯片上的 ` data-autoslide` 属性覆盖
+    // 	transition: 'default', // 切换过渡效果，有none/fade/slide/convex/concave/zoom
+    // 	transitionSpeed: 'default', // 过渡速度，default/fast/slow
+    // 	mouseWheel: true, //是否启用通过鼠标滚轮来切换幻灯片
+    // }
+
+    // 初始化幻灯片
+    Reveal.initialize({
+        history: true,
+        dependencies: [
+            { src: 'https://ptteng.github.io/PPT/plugin/markdown/marked.js' },
+            { src: 'https://ptteng.github.io/PPT/plugin/markdown/markdown.js' },
+            { src: 'https://ptteng.github.io/PPT/plugin/notes/notes.js', async: true },
+            { src: 'https://ptteng.github.io/PPT/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+    });
+</script>
+</body>
+</html>
