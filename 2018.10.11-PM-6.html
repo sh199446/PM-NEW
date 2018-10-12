@@ -1,0 +1,198 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>葡萄藤PPT</title>
+
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/reveal.css">
+
+    <!-- PPT主题，可以在/css/reveal/theme/中选择其他主题，目前暂时只能使用该模板 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/theme/ptt.css">
+
+    <!-- syntax highlighting 代码高亮主题 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/lib/reveal/css/zenburn.css">
+
+    <!-- 打印和PDF输出样式 -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'https://ptteng.github.io/PPT/css/reveal/print/pdf.css' : '../css/reveal/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+</head>
+<body>
+<img src="https://ptteng.github.io/PPT/img/demo/logo.png" alt="" usemap="#pttmap" class="base-logo">
+<map name="pttmap">
+    <area shape="rect" coords="0,0,276,58" href="http://www.jnshu.com" alt="" target="_blank"/>
+</map>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>浅谈后台管理模块</h2>
+			<p></p>
+            <h3>PM小课堂</h3>
+            <p>分享人：吕俊儒</p>
+        </section>
+        <section>
+		    <p align="left">目录</p>
+            <p align="left">1.什么是后台管理</p>
+            <p align="left">2.账户管理、角色管理的功能说明</p>
+            <p align="left">3.模块管理、密码修改的功能说明</p>
+            <p align="left">4.账户、角色、权限、模块四者的关系</p>
+            <p align="left">5.后台管理设计时需要注意的问题</p>
+			<p align="left">6.权限的维度以及如何控制某些特定操作</p>
+			<p align="left">7.更多讨论</p>
+			<p align="left">8.参考文献</p>
+        </section>
+        <section>
+            <h3>1.什么是后台管理</h3>
+        </section>
+        <section> 
+            <p align="left">1.1  后台指网站或系统用于管理用户数据、网站或系统数据的一部分，一般只允许管理员或特定人员通过后台登录界面进入，对整个网站及系统进行管理，普通用户是没有权限进入的。后台管理主要是用于对网站前台的信息管理，如文字、图片、影音、和其他日常使用文件的发布、更新、删除等操作，同时也包括会员信息、订单信息、访客信息的统计和管理。简单来说就是对网站数据库和文件快速操作的管理系统
+             </p>
+            <p align="left">1.2  设计后台管理主要是方便管理人员对网站的信息、用户数据等进行管理。如果没有后台管理，想要改变前台的内容就需要改动代码，这样就很麻烦且开发成本高，不便于运营维护。
+            </p>
+        </section>
+        
+        <section>
+            <h3>2.账户管理、角色管理的功能说明</h3>
+        </section>
+        <section>
+		         <p align="left">2.1 账户管理的功能说明</p>
+                <p align="left">账户管理对整个后台的账户体系进行管理，可以进行编辑、删除或增加账户的操作。编辑可以对账户的用户名、密码、角色进行修改。这里的操作是针对的后台所有账户，因此需要注意权限的分配，只有权限高的的账号才有权进行账户管理操作。</p>
+			    <p align="left">名词解释：ID，它与账户是一对一的，通过ID可以找到对应的账户；用户名，在后台管理系统中用于登录识别对应的账户，可以使用汉字、字母等组成。</p>
+				<p align="left">账户管理的操作说明：编辑是对账户列表中的账户进行修改，可以更改账户的密码和角色；新增相当于开户，可以手动添加新账户到管理员列表；删除是对某一账户进行删除操作，删除后的账户无法再登录后台管理系统。</p>
+                </section>
+				 <section>
+		       <p align="left">需要注意用户管理与账户管理的区别，用户管理主要是对外账户的管理，即前台注册用户，对内部管理员账户没有操作权限，一般就只是修改用户的数据的功能，而后台的账户管理可以对整个后台的账户体系进行操作。</p>
+                </section>
+				  <section>
+		         <p align="left">2.2 角色管理的功能说明</p>
+                <p align="left">名词解释：ID，它与角色是一对一的，通过ID可以找到对应的角色；角色，角色实质上就是权限的集合，通过角色的管理，其实质上是对权限进行管理。</p>
+			    <p align="left">角色管理的编辑就是对角色对应的权限进行更改，删除就直接删除该角色，在创建新账户时就不能再使用这个角色</p>
+				<p align="left"></p>
+                </section>
+           <section>
+		         <p align="left">我们修真院的后台、萝卜多后台的权限都是RBAC形式的，在RBAC中，权限与角色相关联，用户通过成为适当角色的成员而得到这些角色的权限。这就极大地简化了权限的管理。在一个组织中，角色是为了完成各种工作而创造，用户则依据它的责任和资格来被指派相应的角色，用户可以很容易地从一个角色被指派到另一个角色。角色可依新的需求和系统的合并而赋予新的权限，而权限也可根据需要而从某角色中回收。</p>
+                </section>
+				   <section>
+                 <p align="left">例如现在公司有20个产品经理，如果每一个账户都去勾选权限就会很麻烦，特别是权限比较多的时候，而我们直接将产品经理的权限设置好后命名为产品经理角色，这时只需要创建账户或编辑账户时选择产品经理角色就可以完成权限的分配，而且如果要调整产品经理的权限，就不再需要去挨个编辑账户，仅需要修改角色对应权限就可以实现对产品经理账户权限的变更。</p>
+                </section>
+           
+         <section>
+            <h3>3.模块管理、密码修改的功能说明</h3>
+        </section>
+           
+        <section>
+           <p align="left">3.1模块管理的功能说明</p>
+		   <p align="left">模块管理可以对平台的功能模块进行管理。它能对功能模块进行新增、编辑、删除、分类、移动的操作。</p>
+		   <p align="left">名词解释：ID,它与模块是一对一的，通过ID可以找到对应的模块；url，网址，可以是域名也可以是IP地址，在后台模块管理中，它的组成结构为资源类型、存放资源的主机域名、资源文件名；父节点，父结点在数据库管理中的数据模型中，早期阶段的层次模型和网状模型中，一个属性如果有上一级，则称这个上一级是它的父结点，如果没有上一级，则这个属性则无父结点；icon，图标，对模块选项进行装饰；排序，对模块列表中的模块进行排序。</p>
+		  </section>
+		  
+		 <section>
+		   <p align="left">模块管理的操作说明：编辑就是对模块url、名称、url、父节点等进行编辑，新增就是添加新的模块，需要对它的属性进行设置；删除就是直接删除该模块。</p>
+		   <p align="left">有的模块是一些核心功能，因此模块管理部分也需要注意权限的分配，为了网站的正常运行，必须要特定权限的用户才能进行操作。</p>
+		 </section>
+		  <section>
+		   <p align="left">3.2密码修改的功能说明</p>
+		   <p align="left">后台的密码修改仅仅是对当前登录账户的密码进行修改，无法对其他账户密码进行操作，一般是采用验证旧密码来修改密码。</p>
+		  </section>
+		<section>
+            <h3>4.账户、角色、权限、模块四者的关系</h3>
+        </section>
+        <section>
+        <p align="left">账户与角色是多对多的关系，一个账户下允许拥有多个角色，一个角色下也可以对应多个账户。比如论坛的admin，它同时具有管理员角色和普通会员的角色，它可以像普通会员角色那样进行发帖回帖，也能够以管理员身份进行禁言。同时，整个论坛肯定不止他一个管理员，因此肯定还有其他账户也是管理员。角色和权限是多对多的关系，一个角色允许拥有多个权限，一个权限也可以分配给多个角色。比如管理员角色拥有增删改查的权限，而增删改查权限也不是管理员所独有的，超级管理员也具有这些权限。        角色是权限的载体，也可以理解为 一个角色是某些权限的集合体。因此给账户分配权限时，直接分配角色就完成了对账户权限的分配。账户能访问哪些模块是由它的角色所对应的权限来控制的，比如管理员只能管理后台部分，而超级管理员则可以对网站所有内容进行更改。
+</p>
+        </section>
+     
+        <section>
+            <h3>5.后台管理设计时需要注意的问题</h3>
+        </section>
+		 <section>
+		  <p align="left">5.1对角色进行删除时，需要考虑它的关联问题</p>
+		  <p align="left">假如我直接删除了一个角色，那么正在使用该角色的账户怎么办？它的权限分配不就混乱了？</p>
+		  <p align="left">针对这个问题我们可以加入一个逻辑判断来解决这个问题，就是在删除角色前，先判断有没有与之关联的账户，若有关联的账户则提示删除失败，让用户删除关联后再来删除角色。防止出现空壳账户。</p>
+		 </section>
+		 
+		 <section>
+		  <p align="left">5.2对模块进行删除时，要考虑是否对其他模块有影响</p>
+		  <p align="left">删除一个功能模块会影响到其他模块吗？比如删除了一个子模块对它的父模块有何影响？删除一个父模块它的子模块何去何从？</p>
+		  <p align="left">这个问题有两种解决方式，第一种是删除子模块时，因为对父模块无影响，直接删除，删除父模块时，父模块下的子模块一并全部删除。就像我们平常的文件管理，删除文件夹下的一个文件不会对文件夹产生影响，但是我们删除文件夹时则把整个文件目录一起删除了。第二种方式是删除父模块，如果下面有子模块时进行提示，告知用户风险后再进行删除，同样也是删除父模块时一并删除子模块。对比可以知道，采用第二种方式更好一些。</p>
+		 </section>
+		 
+		  <section>
+		  <p align="left">5.3对角色进行删除时，需要考虑它的关联问题</p>
+		  <p align="left"></p>
+		  <p align="left">如果一个管理员已经登录或者已经登录正在操作后台，这时超级管理员进入后台修改了该管理员账户的权限，或者直接把该管理员账户删除了，那么这时该管理员账户这边会出现什么情况？</p>
+		  <p align="left">可以参考QQ异地登录时强制下线的这种方式。如果该管理员账户在进行操作时被超级管理员更改权限或者直接被删除，则当他进行任何操作时，强制退出到登录页面，已经被删除的账户重新登录则提示账户不存在，被修改权限的账户重新登录则变更为最新分配的权限。</p>
+		 </section>
+		 <section>
+		  <p align="left">5.4相同角色的账户，如果有个别权限不同，应该怎样设计进行分配？</p>
+		  <p align="left">建立账户时先选择角色，然后再根据账户情况选择编辑它的权限，进行个体账户权限编辑。这样就可实现相同角色人有不同权限。</p>
+		 </section>
+		 <section>
+            <h3>6.权限的维度以及如何控制某些特定操作</h3>
+	     </section>
+			 <section>
+		  <p align="left">权限的维度一般是怎么样的，如果是限定在对某一个模块的细粒度操作控制怎么办？比如说限制只能读，不能编辑，应该怎么设计？</p>
+		  <p align="left">个人认为权限的维度应该是由很小的权限点来组成一个功能的权限，再由几个功能的权限组成一个模块的权限。比如我们萝卜多的后台管理，这里面的新增、编辑、删除就是很小的权限点，由这些小的权限点来组成角色管理功能的权限，再由模块管理功能、角色管理功能、密码修改功能、账户管理功能的权限来组成后台管理模块的权限。限制只能读，不能编辑可以从最小的权限点来考虑，加入只读的权限后，当勾选只读后，禁用新增、编辑、删除的权限。要注意的是需要更高权限的账户来进行编辑。</p>
+		 </section>
+		  <section>
+            <h3>7.更多讨论</h3>
+			
+        </section>
+        </section>
+		 <section>
+            <h3>8.参考文献</h3>
+			  <p>人人都是产品经理-后台管理系统，需要注意的三个维度</p>
+        </section>
+        <section>
+            <h4>鸣谢</h4>
+            <p>感谢观看,如有出错,恳请指正</p>
+            <p><small>BY : 吕俊儒</small></p>
+        </section>
+
+    </div>
+</div>
+
+<script src="https://ptteng.github.io/PPT/lib/reveal/js/head.min.js"></script>
+<script src="https://ptteng.github.io/PPT/lib/reveal/reveal.js"></script>
+
+<script>
+
+    // 以下为常见配置属性的默认值
+    // {
+    // 	controls: true, // 是否在右下角展示控制条
+    // 	progress: true, // 是否显示演示的进度条
+    // 	slideNumber: false, // 是否显示当前幻灯片的页数编号，也可以使用代码slideNumber: 'c / t' ，表示当前页/总页数。
+    // 	history: false, // 是否将每个幻灯片改变加入到浏览器的历史记录中去
+    // 	keyboard: true, // 是否启用键盘快捷键来导航
+    // 	overview: true, // 是否启用幻灯片的概览模式，可使用"Esc"或"o"键来切换概览模式
+    // 	center: true, // 是否将幻灯片垂直居中
+    // 	touch: true, // 是否在触屏设备上启用触摸滑动切换
+    // 	loop: false, // 是否循环演示
+    // 	rtl: false, // 是否将演示的方向变成RTL，即从右往左
+    // 	fragments: true, // 全局开启和关闭碎片。
+    // 	autoSlide: 0, // 两个幻灯片之间自动切换的时间间隔（毫秒），当设置成 0 的时候则禁止自动切换，该值可以被幻灯片上的 ` data-autoslide` 属性覆盖
+    // 	transition: 'default', // 切换过渡效果，有none/fade/slide/convex/concave/zoom
+    // 	transitionSpeed: 'default', // 过渡速度，default/fast/slow
+    // 	mouseWheel: true, //是否启用通过鼠标滚轮来切换幻灯片
+    // }
+
+    // 初始化幻灯片
+    Reveal.initialize({
+        history: true,
+        dependencies: [
+            { src: 'https://ptteng.github.io/PPT/plugin/markdown/marked.js' },
+            { src: 'https://ptteng.github.io/PPT/plugin/markdown/markdown.js' },
+            { src: 'https://ptteng.github.io/PPT/plugin/notes/notes.js', async: true },
+            { src: 'https://ptteng.github.io/PPT/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+    });
+</script>
+</body>
+</html>
