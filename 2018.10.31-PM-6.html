@@ -1,0 +1,155 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>葡萄藤PPT</title>
+
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/reveal.css">
+
+    <!-- PPT主题，可以在/css/reveal/theme/中选择其他主题，目前暂时只能使用该模板 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/theme/ptt.css">
+
+    <!-- syntax highlighting 代码高亮主题 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/lib/reveal/css/zenburn.css">
+
+    <!-- 打印和PDF输出样式 -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'https://ptteng.github.io/PPT/css/reveal/print/pdf.css' : '../css/reveal/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+</head>
+<body>
+<img src="https://ptteng.github.io/PPT/img/demo/logo.png" alt="" usemap="#pttmap" class="base-logo">
+<map name="pttmap">
+    <area shape="rect" coords="0,0,276,58" href="http://www.jnshu.com" alt="" target="_blank"/>
+</map>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h3>为什么要设立角色，账户是否可以允许有多个角色？权限为什么不直接分配给账户？</h3>
+			<p></p>
+            <h3>PM小课堂</h3>
+            <p>分享人：孙浩</p>
+        </section>
+        <section>
+		    <p align="left">目录</p>
+            <p align="left">1.什么是账户、角色、权限？</p>
+            <p align="left">2.为什么要设立角色？权限为什么不直接分配给账户？</p>
+            <p align="left">3.账户是否可以拥有多个角色？</p>
+            <p align="left">4.RBAC权限模型</p>
+            <p align="left">5.更多讨论</p>
+			<p align="left">6.参考文献</p>
+        </section>
+        <section>
+            <h3>1.什么是账户、角色？</h3>
+        </section>
+        <section> 
+            <p align="left">基本上所有的应用，登录都需要一个账号，在后台系统里账户指的就是登录后台的用户。</p>
+			<p align="left">角色，就是用来控制各个账号的操作范围的，可以理解为权限组。</p>
+			<p align="left">权限，是资源的集合。分为：页面权限、操作权限和数据权限。</p>
+			<p align="left">页面权限：能否看到这个页面的菜单、能否进入这个页面。</p>
+			<p align="left">操作权限：用户在操作系统中的任何动作、交互。例如增删改查等。</p>
+			<p align="left">数据权限：那些人可以看到那些数据，不可看到那些数据。</p>
+			
+			</p>
+        </section>
+        
+        <section>
+            <h3>2.为什么要设立角色？权限为什么不直接分配给账户？</h3>
+        </section>
+        <section>
+		        <p align="left">   例如：我们要做一款企业管理的产品，如果按照传统模型，给每一个用户赋予权限则会非常麻烦，并且不能批量修改用户权限。这时候可以设置几个角色，譬如销售经理、市场经理，然后把权限分给这些角色，再把角色赋予用户，这样一来，无论是分配权限还是修改权限，都只需修改用户和角色的关系，或角色和权限的关系即可，更加灵活方便。 </p>
+                </section>
+           
+         <section>
+            <h3>3.账户是否可以拥有多个角色？</h3>
+        </section>
+           
+        <section>
+           <p align="left"> 例如某公司的A，A即是销售经理又是人事经理，那么在赋予权限上怎么办呢？让他注册两个账户或者专门为他定制一个角色有点不太实际，所以可以赋予他两个角色，这样他就拥有这两个角色的所有权限。</p>
+		</section>
+		  
+		<section>
+            <h3>4.RBAC权限模型</h3>
+        </section>
+        <section>
+        <p align="left">     RBAC是基于角色的访问控制。是从传统的权限模型基础上，改进而来的，是目前比较成熟的权限模型。</p>
+		<p align="left">  主要强调的是三个要素：用户、角色、权限。用户与角色是多对多的关系，角色与权限也是多对多的关系。</p>
+		<p align="left">  权限是用来访问资源的，为用户赋予权限，则可访问资源，在权限的基础上打包一个权限合集---角色，例如销售经理，为用户赋予销售经理的角色，则用户即可访问销售经理角色下的资源合集。</p>
+		<p align="left">  根据RBAC的复杂程度，分为RBAC0，RBAC1，RBAC2，RBAC3。其中最常用的是RBAC0。</p>
+        </section> 
+		
+	     <section>
+		<p align="left">  1.基本模型RBAC0。这个模型是把权限赋予角色，再把角色赋予用户。用户和角色，角色和权限都是多对多的关系。用户拥有的权限等于他所有的角色持有权限之和。很多产品只需基于RBAC0就可以搭建权限模型。   </p>
+		<p align="left">  2.角色分层模型RBAC1。RBAC1建立在RBAC0基础之上，在角色中引入了继承的概念，简单说就是，给角色可以分成几个等级，每个权限等级不同，从而实现更精准的权限管理。</p>
+		
+		
+		</section> 
+		
+	     <section>
+		<p align="left">  3.角色限制模型RBAC2。RBAC2同样建立在RBAC0基础之上，对用户、角色和权限三者之间增加了一些限制。例如：互斥角色限制（同一个用户在两个互斥角色中只能选择一个）、基数限制（ 一个用户拥有的角色是有限的，一个角色拥有的权限也是有限的）、先决条件限制（用户想要获得更高级的角色，首先要拥有低级角色） </p>
+		<p align="left">  4.同一模型RBAC3。RBAC3是1和2的合集，既有角色分层，也可增加各种限制。一般用于系统对权限要求非常复杂的时候，才考虑使用此权限模型。   </p>
+		 
+		</section> 
+		
+	     <section>
+            <h3>5.更多讨论</h3>
+			
+        </section>
+        </section>
+		 <section>
+            <h3>6.参考文献</h3>
+			  <p>人人都是产品经理-RBAC模型：基于用户-角色-权限控制的一些思考</p>
+        </section>
+        <section>
+            <h4>鸣谢</h4>
+            <p>感谢观看,如有出错,恳请指正</p>
+            <p><small>BY : 孙浩</small></p>
+        </section>
+
+    </div>
+</div>
+
+<script src="https://ptteng.github.io/PPT/lib/reveal/js/head.min.js"></script>
+<script src="https://ptteng.github.io/PPT/lib/reveal/reveal.js"></script>
+
+<script>
+
+    // 以下为常见配置属性的默认值
+    // {
+    // 	controls: true, // 是否在右下角展示控制条
+    // 	progress: true, // 是否显示演示的进度条
+    // 	slideNumber: false, // 是否显示当前幻灯片的页数编号，也可以使用代码slideNumber: 'c / t' ，表示当前页/总页数。
+    // 	history: false, // 是否将每个幻灯片改变加入到浏览器的历史记录中去
+    // 	keyboard: true, // 是否启用键盘快捷键来导航
+    // 	overview: true, // 是否启用幻灯片的概览模式，可使用"Esc"或"o"键来切换概览模式
+    // 	center: true, // 是否将幻灯片垂直居中
+    // 	touch: true, // 是否在触屏设备上启用触摸滑动切换
+    // 	loop: false, // 是否循环演示
+    // 	rtl: false, // 是否将演示的方向变成RTL，即从右往左
+    // 	fragments: true, // 全局开启和关闭碎片。
+    // 	autoSlide: 0, // 两个幻灯片之间自动切换的时间间隔（毫秒），当设置成 0 的时候则禁止自动切换，该值可以被幻灯片上的 ` data-autoslide` 属性覆盖
+    // 	transition: 'default', // 切换过渡效果，有none/fade/slide/convex/concave/zoom
+    // 	transitionSpeed: 'default', // 过渡速度，default/fast/slow
+    // 	mouseWheel: true, //是否启用通过鼠标滚轮来切换幻灯片
+    // }
+
+    // 初始化幻灯片
+    Reveal.initialize({
+        history: true,
+        dependencies: [
+            { src: 'https://ptteng.github.io/PPT/plugin/markdown/marked.js' },
+            { src: 'https://ptteng.github.io/PPT/plugin/markdown/markdown.js' },
+            { src: 'https://ptteng.github.io/PPT/plugin/notes/notes.js', async: true },
+            { src: 'https://ptteng.github.io/PPT/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+    });
+</script>
+</body>
+</html>
